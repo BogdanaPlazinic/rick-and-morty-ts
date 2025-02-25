@@ -1,0 +1,53 @@
+@use "../styles/variables" as *;
+
+.headerMainContainer {
+    position: relative;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $primaryColor;
+    z-index: 999;
+}
+.logoContainer {
+    padding-left: 310px;
+}
+.logoText {
+    font-size: 20px;
+    cursor: pointer;
+}
+.menuContainer {
+    padding-right: 10px;
+    position: fixed;
+    z-index: 999;
+}
+.menuContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 700px;
+}
+.menuMainContainer {
+    position: relative;
+}
+.menuOpen {
+    background-color: $primaryColor;
+    position: fixed;
+    width: 100vw;
+    height: 100%;
+    z-index: 2;
+    top: 0px;
+}
+.linkElement {
+    color: black !important;
+    text-decoration: none !important;
+    font-size: 30px;
+  }
+
+@media (min-width: 768px) {
+    .logoContainer {
+        padding-left: 1650px;
+    }
+}  

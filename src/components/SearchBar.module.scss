@@ -1,0 +1,9 @@
+.antInput {
+    width: 90%;
+}
+
+@media (min-width: 768px) {
+    .antInput {
+        width: 50%;
+    }
+}  

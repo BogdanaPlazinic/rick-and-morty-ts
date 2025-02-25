@@ -1,0 +1,43 @@
+.mainSection {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+.background{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    url("../../src/assets/mobile-background.jpg");
+    background-size: cover;
+    background-position: center;
+}
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    flex-direction: column;
+    padding: 40px 40px 40px 40px;
+}
+:global(.ant-form-item-label > label) {
+    color: #ffff     !important;
+}
+:global(.ant-checkbox-wrapper) {
+    color: #ffff !important;
+}
+
+
+
+
+
+
+
+@media (min-width: 768px) {
+    
+    .background {
+        background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+        url("../../src/assets/thumb-1920-876590.png");
+        background-size: cover;
+        background-position: center;
+        }
+    }

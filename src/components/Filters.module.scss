@@ -1,0 +1,15 @@
+.filterContainer {
+    margin-top: 12px;
+    margin-bottom: 15px;
+}
+
+.filterItems {
+    width: 200px;
+}
+
+@media (min-width: 768px) {
+    .filterContainer {
+        justify-content: center;
+        align-items: center;
+    }
+}

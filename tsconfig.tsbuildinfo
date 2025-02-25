@@ -1,0 +1,1 @@
+{"root":["./src/App.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/api/axios.ts","./src/components/CharacterModal.tsx","./src/components/Filters.tsx","./src/components/Navbar.tsx","./src/components/SearchBar.tsx","./src/context/AuthContext.tsx","./src/context/AuthProvider.tsx","./src/pages/CharactersPage.tsx","./src/pages/LogIn.tsx","./declaration.d.ts"],"version":"5.7.3"}
