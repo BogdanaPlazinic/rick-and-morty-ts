@@ -5,6 +5,7 @@ import SearchBar from "../components/SearchBar";
 import styles from "./CharactersPage.module.scss";
 import CharacterModal from "../components/CharacterModal";
 import Filters from "../components/Filters";
+import PaginationComponent from "../components/PaginationComponent";
 
 interface Character {
   id: number;
@@ -13,6 +14,7 @@ interface Character {
   species: string;
   gender: string;
   image: string;
+  page: number;
 }
 
 const CharactersPage: React.FC = () => {
@@ -20,27 +22,25 @@ const CharactersPage: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(
-    null
-  );
+  const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [status, setStatus] = useState<string>("");
-
   const [species, setSpecies] = useState<string>("");
-  // const speciesValueAndSetter = useState<string>("");
-  // const spiecies = speciesValueAndSetter[0];
-  // const setSpicies = speciesValueAndSetter[1];
   const [gender, setGender] = useState<string>("");
+  const [currentPage, setCurrenPage] = useState<number>(1);
+  const [totalPages, setTotalPages] = useState<number>(1);
+
 
   useEffect(() => {
     const fetchCharacters = async () => {
       try {
-        const response = await axios.get(
-          `https://rickandmortyapi.com/api/character/?name=${searchTerm}&status=${status}&species=${species}&gender=${gender}`
+        const response = await axios.get( 
+          `https://rickandmortyapi.com/api/character/?page=${currentPage}&name=${searchTerm}&status=${status}&species=${species}&gender=${gender}`
         );
         setCharacters(response.data.results);
+        setTotalPages(response.data.info.pages);
         setLoading(false);
-        if (error) setError(null);
+        setError(null);
       } catch (error) {
         console.error("Failed to fetch characters:", error);
         setError("No characters found");
@@ -49,7 +49,11 @@ const CharactersPage: React.FC = () => {
     };
 
     fetchCharacters();
-  }, [searchTerm, status, species, gender]);
+  }, [searchTerm, status, species, gender, currentPage]);
+
+  const handlePageChange = (page: number) => {
+    setCurrenPage(page)
+  }
 
   const openModal = (character: Character) => {
     setSelectedCharacter(character);
@@ -102,6 +106,12 @@ const CharactersPage: React.FC = () => {
             onClose={closeModal}
           />
         </div>
+
+        <PaginationComponent 
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+        />
       </div>
     </>
   );
