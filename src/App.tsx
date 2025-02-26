@@ -1,7 +1,6 @@
 import React from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
-
 import LogIn from "./pages/LogIn"
 import { AuthProvider } from "./context/AuthProvider"
 import CharactersPage from "./pages/CharactersPage"

@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import type { FormProps } from 'antd';
 import { Button, Checkbox, Form, Input } from 'antd';
-import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+
 import styles from "./Login.module.scss"
 
 type FieldType = {
