@@ -1,6 +1,8 @@
 import React, { useMemo } from "react";
+
 import { Input } from "antd";
 import debounce from "lodash.debounce";
+
 import styles from './SearchBar.module.scss'
 
 interface SearchBarProps {

@@ -1,5 +1,7 @@
-import { Collapse, Input, Select } from "antd";
 import React, { FC } from "react";
+
+import { Collapse, Input, Select } from "antd";
+
 import styles from './Filters.module.scss'
 
 interface FiltersProps {

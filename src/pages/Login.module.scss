@@ -8,15 +8,20 @@
 }
 .background{
     background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-    url("../../src/assets/mobile-background.jpg");
+    url("../../src/assets/rick-and-morty-desktop.png");
     background-size: cover;
     background-position: center;
 }
+.formContainer {
+    width: 500px;
+    height: 500px;
+    background-color: rgba(240, 248, 255, 0.308);
+    border-radius: 15px;
 .form {
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: baseline;
-    flex-direction: column;
+    flex-direction: column; */
     padding: 40px 40px 40px 40px;
 }
 :global(.ant-form-item-label > label) {
@@ -26,18 +31,33 @@
     color: #ffff !important;
 }
 
-
-
-
-
-
-
 @media (min-width: 768px) {
     
     .background {
         background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-        url("../../src/assets/thumb-1920-876590.png");
+        url("../../src/assets/rick-and-morty-desktop.png");
         background-size: cover;
         background-position: center;
+        }
+        /* .formContainer {
+            width: 500px;
+            height: 500px;
+            background-color: rgba(240, 248, 255, 0.308);
+            border-radius: 15px; */
+            /* display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+        }
+        .form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* width: 500px;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; */
         }
     }
