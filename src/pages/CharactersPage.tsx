@@ -37,7 +37,15 @@ const CharactersPage: React.FC = () => {
     const fetchCharacters = async () => {
       try {
         const response = await axios.get( 
-          `https://rickandmortyapi.com/api/character/?page=${currentPage}&name=${searchTerm}&status=${status}&species=${species}&gender=${gender}`
+          "https://rickandmortyapi.com/api/character/", {
+            params: {
+              name: searchTerm,
+              status: status,
+              species: species,
+              gender: gender,
+              page: currentPage
+            }
+          }
         );
         setCharacters(response.data.results);
         setTotalPages(response.data.info.pages);

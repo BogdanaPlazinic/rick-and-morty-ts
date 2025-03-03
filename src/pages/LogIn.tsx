@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import type { FormProps } from 'antd';
 import { Button, Checkbox, Form, Input } from 'antd';
+import { ArrowRightOutlined } from '@ant-design/icons'
 import { AuthContext } from '../context/AuthContext';
 
 import styles from "./Login.module.scss"
@@ -43,6 +44,7 @@ const Login: React.FC = () => {
     <div className={styles.mainSection}>
       <div className={styles.form}>
     <Form 
+    className={styles.formContainer}
       name="basic"
       labelCol={{ span: 8 }}
       wrapperCol={{ span: 16 }}
@@ -53,19 +55,24 @@ const Login: React.FC = () => {
       autoComplete="off"
     >
       <Form.Item<FieldType>
-        label="Username"
+        /* label="Username" */
         name="username"
+        
         rules={[{ required: true, message: 'Please input your username!' }]}
       >
-        <Input />
+        <Input 
+        placeholder='Username'
+        />
       </Form.Item>
 
       <Form.Item<FieldType>
-        label="Password"
+        /* label="Password" */
         name="password"
         rules={[{ required: true, message: 'Please input your password!' }]}
       >
-        <Input.Password />
+        <Input.Password 
+        placeholder='Password'
+        />
       </Form.Item>
 
       <Form.Item<FieldType> name="remember" valuePropName="checked" label={null}>
@@ -74,7 +81,8 @@ const Login: React.FC = () => {
 
       <Form.Item label={null}>
         <Button block type="primary" htmlType="submit">
-          Submit
+          Continue
+          <ArrowRightOutlined />
         </Button>
       </Form.Item>
     </Form>
