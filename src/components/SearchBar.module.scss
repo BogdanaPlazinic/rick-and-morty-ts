@@ -1,9 +1,15 @@
 .antInput {
-    width: 90%;
+    width: 100%;
 }
+.antInput input {
+    background-color: transparent !important;
+}
+
+// ------------RESPONSIVE--------------
 
 @media (min-width: 768px) {
     .antInput {
-        width: 50%;
+        width: 30%;
+        height: 40px;
     }
 }  

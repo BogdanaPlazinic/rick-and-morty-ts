@@ -82,15 +82,20 @@ const CharactersPage: React.FC = () => {
   return (
     <>
       <div className={styles.charactersBackground}>
+        <div className={styles.stickyHeader}>
         <Navbar />
+        </div>
         <div className={styles.container}>
           <h1>Character List</h1>
-          <SearchBar setSearchTerm={setSearchTerm} />
+
+          <div className={styles.searchContainer}>
           <Filters
             setStatus={setStatus}
             setSpecies={setSpecies}
             setGender={setGender}
           />
+          <SearchBar setSearchTerm={setSearchTerm} />
+          </div>
           {error ? (
             <p>{error}</p>
           ) : (
@@ -106,10 +111,10 @@ const CharactersPage: React.FC = () => {
                   <p>{character.status}</p>
                   <p>{character.species}</p>
                 </div>
+                
               ))}
             </div>
           )}
-
           <CharacterModal
             character={selectedCharacter}
             isOpen={isModalOpen}

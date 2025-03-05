@@ -1,63 +1,84 @@
-.mainSection {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+@use "../styles/variables" as *;
+
+.background {
     height: 100vh;
-}
-.background{
     background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
     url("../../src/assets/rick-and-morty-desktop.png");
     background-size: cover;
     background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mainSection {
+    width: 400px;
+    height: 400px;
+    background: $sectionBg;
+    backdrop-filter: blur(2px);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .formContainer {
-    width: 500px;
-    height: 500px;
-    background-color: rgba(240, 248, 255, 0.308);
-    border-radius: 15px;
-.form {
-    /* display: flex;
+    display: flex;
     justify-content: center;
-    align-items: baseline;
-    flex-direction: column; */
-    padding: 40px 40px 40px 40px;
+    align-items: center;
+    flex-direction: column;
 }
-:global(.ant-form-item-label > label) {
-    color: #ffff     !important;
+.inputContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
 }
-:global(.ant-checkbox-wrapper) {
-    color: #ffff !important;
+.rememberContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.continueBtnContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.continueBtnContainer button {
+    background-color: $btnColor;
+    color: black;
+    font-family: "Poppins",sans-serif;
+
+    &:hover {
+        background-color: $btnColor !important;
+        color: black !important;
+        font-size: 16px;    
+      }
+}
+:global(.ant-checkbox-checked .ant-checkbox-inner) {
+    background-color: $btnColor !important;
+    border-color: $btnColor !important;
+  }
+.form {
+    width: 307px;
+    height: 300px;
+}
+.form h2 {
+    color: $primaryColor;
+}
+.rememberContainer span {
+    color: $primaryColor;
+    font-family: "Poppins",sans-serif;
 }
 
+// --------------RESPONSIVE---------------
+
 @media (min-width: 768px) {
-    
-    .background {
-        background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-        url("../../src/assets/rick-and-morty-desktop.png");
-        background-size: cover;
-        background-position: center;
-        }
-        /* .formContainer {
-            width: 500px;
-            height: 500px;
-            background-color: rgba(240, 248, 255, 0.308);
-            border-radius: 15px; */
-            /* display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center; */
-        }
-        .form {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            /* width: 500px;
-            height: 500px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column; */
-        }
+    .mainSection {
+        width: 450px;
+        height: 450px;
     }
+    .form {
+        width: 350px;
+        height: 350px;
+    }
+}
