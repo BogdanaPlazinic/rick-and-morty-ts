@@ -4,9 +4,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button } from 'antd';
 import Hamburger from 'hamburger-react';
 
-import styles from './Navbar.module.scss'
+import styles from './MobileHeader.module.scss'
 
-const Navbar: React.FC = () => {
+const MobileHeader: React.FC = () => {
     const [isOpen, setOpen] = useState<boolean>(false)
     const navigate = useNavigate()
 
@@ -56,4 +56,4 @@ const Navbar: React.FC = () => {
     )
 }
 
-export default Navbar;
+export default MobileHeader;

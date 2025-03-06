@@ -1,3 +1,5 @@
+@use "../styles/variables" as *;
+
 .filterContainer {
     margin-top: 12px;
     margin-bottom: 15px;
@@ -7,9 +9,17 @@
     width: 200px;
 }
 
+// ------------RESPONSIVE--------------
+
 @media (min-width: 768px) {
     .filterContainer {
+        display: flex;
+        align-content: stretch;
         justify-content: center;
-        align-items: center;
+        align-items: flex-end;
+        gap: 10px;
+    }
+    .filterItems {
+        width: 150px;
     }
 }

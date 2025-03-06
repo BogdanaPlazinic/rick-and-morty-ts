@@ -27,7 +27,7 @@ const Login: React.FC = () => {
   
 
   const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
-    if (values.username === 'bogdana' && values.password === 'bogdana123') {
+    if (values.username === 'user' && values.password === 'user123') {
       setAuthenticated(true);
       navigate('/characters');
     } else {
@@ -43,19 +43,20 @@ const Login: React.FC = () => {
     <section className={`${styles.background}`}>
     <div className={styles.mainSection}>
       <div className={styles.form}>
+        <h2>Login</h2>
+    
     <Form 
     className={styles.formContainer}
       name="basic"
-      labelCol={{ span: 8 }}
-      wrapperCol={{ span: 16 }}
-      style={{ maxWidth: 600 }}
+      labelCol={{ span: 24 }}
+      wrapperCol={{ span: 24 }}
       initialValues={{ remember: true }}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
+      <div className={styles.inputContainer}>
       <Form.Item<FieldType>
-        /* label="Username" */
         name="username"
         
         rules={[{ required: true, message: 'Please input your username!' }]}
@@ -66,7 +67,6 @@ const Login: React.FC = () => {
       </Form.Item>
 
       <Form.Item<FieldType>
-        /* label="Password" */
         name="password"
         rules={[{ required: true, message: 'Please input your password!' }]}
       >
@@ -74,17 +74,24 @@ const Login: React.FC = () => {
         placeholder='Password'
         />
       </Form.Item>
-
+      <div className={styles.rememberContainer}>
       <Form.Item<FieldType> name="remember" valuePropName="checked" label={null}>
         <Checkbox>Remember me</Checkbox>
       </Form.Item>
+      </div>
+      </div>
 
+      <div className={styles.continueBtnContainer}>
       <Form.Item label={null}>
-        <Button block type="primary" htmlType="submit">
+        <Button 
+        className={styles.continueBtn}
+        block type="primary" 
+        htmlType="submit">
           Continue
           <ArrowRightOutlined />
         </Button>
       </Form.Item>
+      </div>
     </Form>
     </div>
     </div>
