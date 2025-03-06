@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import Navbar from "../components/Navbar";
+import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
 import CharacterModal from "../components/CharacterModal";
 import Filters from "../components/Filters";
@@ -83,7 +83,7 @@ const CharactersPage: React.FC = () => {
     <>
       <div className={styles.charactersBackground}>
         <div className={styles.stickyHeader}>
-        <Navbar />
+        <Header />
         </div>
         <div className={styles.container}>
           <h1>Character List</h1>
