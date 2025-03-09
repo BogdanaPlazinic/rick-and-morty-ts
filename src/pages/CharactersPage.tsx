@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import Navbar from "../components/Navbar";
+import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
 import CharacterModal from "../components/CharacterModal";
 import Filters from "../components/Filters";
@@ -82,15 +82,20 @@ const CharactersPage: React.FC = () => {
   return (
     <>
       <div className={styles.charactersBackground}>
-        <Navbar />
+        <div className={styles.stickyHeader}>
+        <Header />
+        </div>
         <div className={styles.container}>
           <h1>Character List</h1>
-          <SearchBar setSearchTerm={setSearchTerm} />
+
+          <div className={styles.searchContainer}>
           <Filters
             setStatus={setStatus}
             setSpecies={setSpecies}
             setGender={setGender}
           />
+          <SearchBar setSearchTerm={setSearchTerm} />
+          </div>
           {error ? (
             <p>{error}</p>
           ) : (
@@ -103,13 +108,13 @@ const CharactersPage: React.FC = () => {
                 >
                   <img src={character.image} alt={character.name} />
                   <h3>{character.name}</h3>
-                  <p>{character.status}</p>
+                  <p className={styles.characterStatus}>{character.status}</p>
                   <p>{character.species}</p>
                 </div>
+                
               ))}
             </div>
           )}
-
           <CharacterModal
             character={selectedCharacter}
             isOpen={isModalOpen}

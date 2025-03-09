@@ -1,5 +1,44 @@
+@use "../styles/variables" as *;
+
 .pagination {
     justify-content: center;
     margin-top: 20px;
-    margin-bottom: 60px;
+    padding-bottom: 60px;
+}
+
+// ---------ANT DESIGN OVERRIDES--------
+
+
+:global(.ant-pagination-item) {
+    background-color: $sectionBg !important;
+    border-color: $greenBorder !important;
+}
+:global(.ant-pagination-item) a {
+    color: $primaryColor !important;
+}
+:global(.ant-pagination-item-active) {
+    background-color: $greenFocus !important;
+    border-color: $primaryColor !important;
+}
+  :global(.ant-pagination-item-active) a {
+    color: $primaryColor !important;
+}
+:global(.ant-pagination-item:hover) {
+    background-color: $sectionBg !important;
+    border-color: $greenFocus !important;
+    color: $primaryColor !important;
+}
+:global(.ant-pagination-prev) button,
+:global(.ant-pagination-next) button {
+  color: $primaryColor !important;
+}
+:global(.ant-pagination-jump-next) {
+    color: $primaryColor !important;
+}
+:global(.ant-pagination-jump-next::after),
+:global(.ant-pagination-jump-prev::after) {
+    color: $primaryColor !important;
+}
+:global(.ant-pagination-item-ellipsis) {
+    color: $primaryColor !important;
 }

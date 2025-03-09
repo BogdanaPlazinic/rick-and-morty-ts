@@ -22,10 +22,15 @@ const SearchBar: React.FC<SearchBarProps> = ({ setSearchTerm }) => {
     debouncedSearch(e.target.value);
   };
 
-  return <Input 
-  className={styles.antInput}
-  placeholder="Search characters..." 
-  onChange={handleChange} />;
+  return (
+    <div className={styles.searchBarContainer}>
+      <Input 
+      className={styles.antInput}
+        placeholder="Search characters..."
+        onChange={handleChange}
+      />
+    </div>
+  )
 };
 
 export default SearchBar;

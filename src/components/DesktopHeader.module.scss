@@ -1,0 +1,56 @@
+@use "../styles/variables" as *;
+
+.headerDesktopContainer {
+    background-color: rgba(163, 163, 163, 0.308);
+}
+.navDesktopContainer {
+    display: flex;
+    justify-content: space-around;
+}
+.logoDesktopContainer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+}
+.logoDesktopContainer:hover {
+    color: $btnColor;
+}
+.logoImg {
+    width: 60px;
+    height: 60px;
+}
+.desktopNavLinksContainer {
+    display: flex;
+    align-items: center;
+}
+.desktopNavItemsContainer {
+    display: flex;
+    gap: 20px;
+    color: $primaryColor;
+    font-weight: 700;
+    text-decoration: none;
+}
+.desktopNavItemsContainer a {
+    color: $primaryColor;
+    font-size: 20px;
+    text-decoration: none;
+}
+.desktopNavItemsContainer a:hover {
+    color: $btnColor;
+}
+.logoutDesktopBtn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    font-size: 30px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.logoutDesktopBtn a {
+    color: $primaryColor;
+}
+.logoutDesktopBtn a:hover {
+    color: $btnColor;
+    font-size: 32px;
+}

@@ -1,0 +1,49 @@
+@use "../styles/variables" as *;
+
+* {
+    font-family: "Poppins",sans-serif !important;
+}
+.characterModalContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.characterModalContainer p {
+    display: flex;
+    align-items: start;
+    font-size: large;
+}
+.characterModalContainer p span {
+    font-weight: bolder;
+}
+.characterModalContainer img {
+    border-radius: 30px;
+}
+
+// ---------ANT DESIGN OVERRIDES--------
+
+:global(.ant-modal-content) {
+    background-color: $sectionBg !important;
+    backdrop-filter: blur(10px);
+    border-radius: 20px !important;
+    /* border: 1px solid $greenFocus !important; */
+    color: $primaryColor !important;
+}
+:global(.ant-modal-header) {
+    background-color: transparent !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+:global(.ant-modal-title) {
+    font-size: 35px !important;
+    color: $primaryColor !important;
+}
+:global(.ant-modal-close) {
+    color: $primaryColor !important;
+}
+:global(.ant-modal-footer) button {
+    background-color: $btnColor !important;
+    color: $primaryColor !important;
+    border: 1px solid $greenBorder !important;
+}
