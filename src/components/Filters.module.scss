@@ -4,10 +4,53 @@
     margin-top: 12px;
     margin-bottom: 15px;
 }
-
 .filterItems {
     width: 200px;
 }
+
+// ---------ANT DESIGN OVERRIDES--------
+
+:global(.ant-select-selector) {
+    background-color: $sectionBg !important;
+    border: 1px solid $greenBorder !important;
+    color: $primaryColor !important;
+}
+:global(.ant-select-arrow) {
+    color: $primaryColor !important;
+}
+:global(.ant-select-open .ant-select-arrow) {
+    color: $greenFocus !important;
+}
+:global(.ant-select-focused .ant-select-selection-item) {
+    color: $greenFocus !important;
+}
+:global(.ant-select-selector:focus),
+:global(.ant-select-focused .ant-select-selector) {
+  border-color: $greenFocus !important;
+  box-shadow: 0 0 5px rgba(0, 255, 0, 0.7) !important;
+}
+:global(.ant-select-selector:active) {
+    color: $btnColor !important;
+}
+:global(.ant-select-dropdown) {
+   background-color: $sectionBg !important; 
+   backdrop-filter: blur(6px) !important;
+}
+:global(.ant-select-item) {
+    color: $primaryColor !important;
+}
+:global(.ant-select-item-option-active) {
+    background-color: $btnColor !important;
+    color: $secondaryColor !important;
+}
+:global(.ant-select-item-option:hover) {
+    color: $secondaryColor !important;
+}
+:global(.ant-select-item-option-selected) {
+    background-color: $btnColor !important;
+    color: $primaryColor !important;
+}
+
 
 // ------------RESPONSIVE--------------
 

@@ -21,13 +21,23 @@ interface CharacterModalProps {
 
 const CharacterModal: React.FC<CharacterModalProps> = ({ character, isOpen, onClose }) => {
     return (
-    <Modal title={character?.name} open={isOpen} onCancel={onClose} footer={[<Button onClick={onClose} key='cancel'>Cancel</Button>]} >
+    <Modal 
+    title={character?.name} 
+    open={isOpen} 
+    onCancel={onClose} 
+    footer={[
+    <Button 
+    onClick={onClose} 
+    key='cancel'>
+    Cancel
+    </Button>
+    ]} >
         {character && (
-            <div className={styles.modalContentTEEEST}> {/* test klasa */}
+            <div className={styles.characterModalContainer}>
                 <img src={character.image} alt={character.name} />
-                <p>Status: {character.status} </p>
-                <p>Species: {character.species} </p>
-                <p>Gender: {character.gender} </p>
+                <p><span>Status: &nbsp;</span>{character.status} </p>
+                <p><span>Species: &nbsp;</span>{character.species} </p>
+                <p><span>Gender: &nbsp;</span>{character.gender} </p>
             </div>
         )}
     </Modal>

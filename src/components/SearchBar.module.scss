@@ -1,15 +1,33 @@
-.antInput {
-    width: 100%;
-}
-.antInput input {
-    background-color: transparent !important;
+@use "../styles/variables" as *;
+
+.searchBarContainer {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // ---------ANT DESIGN OVERRIDES--------
+
+    :global(.ant-input) {
+        width: 100% !important;
+        background-color: $sectionBg !important;
+        color: $primaryColor !important;
+        border: 1px solid $greenBorder !important;
+        transition: border-color 0.3s ease-in-out;
+    }
+    :global(.ant-input::placeholder) {
+        color: $primaryColor !important;
+    }
+    :global(.ant-input:focus),
+    :global(.ant-input-focused) {
+        border-color: $greenFocus !important;
+    }
 }
 
 // ------------RESPONSIVE--------------
 
 @media (min-width: 768px) {
-    .antInput {
+    .searchBarContainer {
         width: 30%;
-        height: 40px;
     }
 }  

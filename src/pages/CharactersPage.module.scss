@@ -1,5 +1,8 @@
 @use "../styles/variables" as *;
 
+* {
+    font-family: "Poppins",sans-serif !important;
+}
 .charactersBackground {
     height: 1fr;
     min-height: 100vh;
@@ -46,6 +49,11 @@
         border-radius: 10px;
     }
 }
+.characterStatus {
+    color: $btnColor;
+    font-weight: bold;
+}
+
 // ------------COMPONENTS--------------
 
 .stickyHeader {
@@ -59,7 +67,7 @@
     flex-direction: column-reverse;
     flex-wrap: wrap;
     align-content: center;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
