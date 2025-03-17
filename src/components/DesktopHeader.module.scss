@@ -12,8 +12,12 @@
     align-items: center;
     gap: 20px;
     cursor: pointer;
+    text-decoration: none;
 }
-.logoDesktopContainer:hover {
+.logoDesktopContainer h1 {
+    color: $btnColor;
+}
+.logoDesktopContainer h1:hover {
     color: $btnColor;
 }
 .logoImg {
@@ -51,6 +55,6 @@
     color: $primaryColor;
 }
 .logoutDesktopBtn a:hover {
-    color: $btnColor;
+    color: $btnRedColor;
     font-size: 32px;
 }

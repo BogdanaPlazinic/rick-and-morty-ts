@@ -1,16 +1,11 @@
+@use "../styles/mixins";
 @use "../styles/variables" as *;
 
 * {
-    font-family: "Poppins",sans-serif !important;
+    @include mixins.font;
 }
 .charactersBackground {
-    height: 1fr;
-    min-height: 100vh;
-    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-    url("../../src/assets/chracters-background.svg");
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
+    @include mixins.backgroundStyle;
 }
 .container {
     padding: 20px;
@@ -21,11 +16,7 @@
 }
 
 .charactersGridContainer {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 20px;
-    justify-content: center;
+    @include mixins.gridStyle
 }
 
 .characterCard {

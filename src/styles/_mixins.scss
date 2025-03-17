@@ -1,0 +1,52 @@
+@use "../styles/variables" as *;
+
+@mixin font {
+    font-family: "Poppins",sans-serif !important;
+}
+@mixin backgroundStyle {
+    height: 1fr;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    url("../../src/assets/chracters-background.svg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+@mixin gridStyle {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+@mixin cardStyle {
+    background-color: $sectionBg;
+    backdrop-filter: blur(5px);
+    color: $primaryColor;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    img {
+        width: 100%;
+        max-width: 200px;
+        border-radius: 10px !important;
+    }
+}
+@mixin buttonStyle {
+    background-color: $btnColor !important;
+    color: $primaryColor !important;
+    border: 1px solid $greenBorder !important;
+}
+@mixin buttonRedStyle {
+    background-color: $btnRedColor !important;
+    color: $primaryColor !important;
+    border: none;
+}

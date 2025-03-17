@@ -1,26 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { LogoutOutlined } from "@ant-design/icons";
 
 import styles from "./DesktopHeader.module.scss"
-import { Link } from "react-router-dom";
+
 
 const DesktopHeader: React.FC = () => {
     return (
         <header className={styles.headerDesktopContainer}>
             <nav className={styles.navDesktopContainer}>
-                <div className={styles.logoDesktopContainer}>
+                <Link to="/characters" className={styles.logoDesktopContainer}>
                     <img 
                     className={styles.logoImg}
                     src="./src/assets/header-logo.png" 
                     />
                     <h1>Rick & Morty</h1>
-                </div>
+                </Link>
 
                 <div className={styles.desktopNavLinksContainer}>
                     <div className={styles.desktopNavItemsContainer}>
                         <Link to="/characters">Home</Link>
-                        <Link to="#">Favourites</Link> {/* DODATI LINK ZA FAVOURITES STRANU */}
+                        <Link to="/favourites">Favourites</Link>
                     </div>
                     <div className={styles.logoutDesktopBtn}>
                         <Link to="/">

@@ -20,6 +20,25 @@
 .characterModalContainer img {
     border-radius: 30px;
 }
+.favouriteIcon {
+    cursor: pointer;
+    font-size: 28px;
+    color: $btnColor;
+}
+.modalHeader {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.modalIcon {
+    width: 20%;
+    justify-content: start;
+}
+.modalTitle {
+    width: 80%;
+    justify-content: center;
+}
+
 
 // ---------ANT DESIGN OVERRIDES--------
 
@@ -27,13 +46,10 @@
     background-color: $sectionBg !important;
     backdrop-filter: blur(10px);
     border-radius: 20px !important;
-    /* border: 1px solid $greenFocus !important; */
     color: $primaryColor !important;
 }
 :global(.ant-modal-header) {
     background-color: transparent !important;
-    display: flex !important;
-    justify-content: center !important;
 }
 :global(.ant-modal-title) {
     font-size: 35px !important;
