@@ -16,7 +16,7 @@
 }
 
 .charactersGridContainer {
-    @include mixins.gridStyle
+    @include mixins.gridStyle;
 }
 
 .characterCard {

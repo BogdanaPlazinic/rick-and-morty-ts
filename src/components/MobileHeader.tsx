@@ -18,11 +18,13 @@ const MobileHeader: React.FC = () => {
     return (
         <header className={styles.headerMainContainer}>
             <nav className={styles.header}>
-                <div className={styles.logoContainer}>
-                    <h3 className={styles.logoText}>
-                        Rick & Morty
-                    </h3>
-                </div>
+                <Link className={styles.logoText} to="/characters" >
+                    <div className={styles.logoContainer}>
+                        <h3 /* className={styles.logoText} */>
+                            Rick & Morty
+                        </h3>
+                    </div>
+                </Link>
 
                 <div className={styles.menuContainer}>
                     <Hamburger 
@@ -35,10 +37,10 @@ const MobileHeader: React.FC = () => {
                     <div className={styles.menuOpen}>
                         <div className={styles.menuMainContainer}>
                             <div className={styles.menuContent}>
-                                <Link className={styles.linkElement} to="#">Favourite</Link>
                                 <Link className={styles.linkElement} to="/characters">Characters</Link>
+                                <Link className={styles.linkElement} to="/favourites">Favourites</Link>
 
-                                <div>
+                                <div className={styles.buttonContainer}>
                                     <Button
                                     className={styles.menuBtn}
                                     onClick={handleLoogout}

@@ -33,13 +33,13 @@ const EditCharacterModal: React.FC<EditCharacterModalProps> = ({ isOpen, charact
     return (
         <Modal title="Edit Character" open={isOpen} onCancel={onClose} footer={null}>
             <Form form={form} layout="vertical" onFinish={handleFinish}>
-                <Form.Item className={styles.formItem} label="Name" name="name" rules={[{ required: true, message: "Name is required" }]}>
+                <Form.Item className={styles.formItem} label="Name" name="name" rules={[{ message: "Name is required" }]}>
                     <Input 
                     className={styles.inputForm}
                     />
                 </Form.Item>
                 
-                <Form.Item className={styles.formItem} label="Species" name="species" rules={[{ required: true, message: "Species is required" }]}>
+                <Form.Item className={styles.formItem} label="Species" name="species" rules={[{ message: "Species is required" }]}>
                     <Input 
                     className={styles.inputForm}
                     />
