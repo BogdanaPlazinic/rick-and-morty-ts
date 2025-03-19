@@ -108,7 +108,16 @@ const CharactersPage: React.FC = () => {
                 >
                   <img src={character.image} alt={character.name} />
                   <h3>{character.name}</h3>
-                  <p className={styles.characterStatus}>{character.status}</p>
+                  <p className={`${styles.characterStatus} ${
+                    character.status === "Alive"
+                      ? styles.alive
+                      : character.status === "Dead"
+                      ? styles.dead
+                      : styles.unknown
+                    }`}
+                  >
+                  {character.status}
+                  </p>
                   <p>{character.species}</p>
                 </div>
                 

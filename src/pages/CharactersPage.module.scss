@@ -43,6 +43,18 @@
 .characterStatus {
     color: $btnColor;
     font-weight: bold;
+
+    &.alive {
+        color: $btnColor;
+      }
+    
+      &.dead {
+        color: $btnRedColor;
+      }
+    
+      &.unknown {
+        color: $secondaryColor;
+      }
 }
 
 // ------------COMPONENTS--------------
