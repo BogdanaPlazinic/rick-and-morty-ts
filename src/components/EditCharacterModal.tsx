@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 
 import { Modal, Form, Input, Select, Button } from "antd";
 import { Character } from "../types/Character";
+import { toast } from "react-toastify";
 
 import styles from "./EditCharacterModal.module.scss"
 
@@ -27,6 +28,7 @@ const EditCharacterModal: React.FC<EditCharacterModalProps> = ({ isOpen, charact
         if (character) {
             onSave({ ...character, ...values });
             onClose();
+            toast.success("Character successfully edited!")
         }
     };
 

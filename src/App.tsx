@@ -6,6 +6,9 @@ import { AuthProvider } from "./context/AuthProvider"
 import CharactersPage from "./pages/CharactersPage"
 import Favouites from "./pages/Favourites"
 
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+
 import styles from "./App.module.scss"
 
 const App: React.FC = () => {
@@ -13,6 +16,18 @@ const App: React.FC = () => {
   return (
     <main className={`${styles.App}`}>
       <AuthProvider>
+      <ToastContainer 
+          position="top-right"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
         <Router>
           <Routes>
             <Route path="/" element={<LogIn />} />

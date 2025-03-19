@@ -4,6 +4,7 @@ import { Card, Button } from "antd";
 import Header from "../components/Header";
 import CharacterModal from "../components/CharacterModal";
 import EditCharacterModal from "../components/EditCharacterModal"
+import { toast } from "react-toastify";
 
 import styles from "./Favouites.module.scss";
 
@@ -29,6 +30,7 @@ const Favourites: React.FC = () => {
 
     const handleRemove = (id: number) => {
         const updatedFavourites = favourites.filter((character) => character.id !== id);
+        toast.error("Character removed!")
         setFavourites(updatedFavourites);
         localStorage.setItem("favorites", JSON.stringify(updatedFavourites));
     };

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Button, Modal } from "antd";
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 
+import { toast } from "react-toastify";
+
 import styles from "./CharacterModal.module.scss";
 
 interface Character {
@@ -36,8 +38,10 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, isOpen, onCl
 
     if (isFavorite) {
         favorites = favorites.filter((fav) => fav.id !== character.id);
+        toast.error("Removed from favorites!")
     } else {
         favorites.push(character);
+        toast.success("Added to favorites!")
     }
 
     localStorage.setItem("favorites", JSON.stringify(favorites));
