@@ -54,10 +54,6 @@
         font-size: 16px;    
       }
 }
-:global(.ant-checkbox-checked .ant-checkbox-inner) {
-    background-color: $btnColor !important;
-    border-color: $btnColor !important;
-  }
 .form {
     width: 307px;
     height: 300px;
@@ -69,6 +65,14 @@
     color: $primaryColor;
     font-family: "Poppins",sans-serif;
 }
+
+// ---------ANT DESIGN OVERRIDES--------
+
+:global(.ant-checkbox-checked .ant-checkbox-inner) {
+    background-color: $btnColor !important;
+    border-color: $btnColor !important;
+  }
+
 
 // --------------RESPONSIVE---------------
 

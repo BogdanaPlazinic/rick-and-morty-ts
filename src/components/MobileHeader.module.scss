@@ -13,7 +13,7 @@
     width: 100%;
     background-color: $primaryColor;
     z-index: 999;
-    color: black !important;
+    color: $secondaryColor !important;
 }
 .logoContainer {
     display: flex;
@@ -48,8 +48,7 @@
     position: relative;
 }
 .menuOpen {
-    background-color: #ffffff;
-    /* backdrop-filter: blur(20px); */
+    background-color: $primaryColor;
     position: fixed;
     width: 100vw;
     height: 100%;
@@ -57,7 +56,7 @@
     top: 0px;
 }
 .linkElement {
-    color: black !important;
+    color: $secondaryColor !important;
     text-decoration: none !important;
     font-size: 30px;
     font-weight: bolder;
@@ -70,6 +69,8 @@
     border: none !important;
     font-weight: bold;
 }
+
+// ------------RESPONSIVE--------------
 
 @media (min-width: 768px) {
     .logoContainer {

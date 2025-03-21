@@ -20,7 +20,7 @@ const MobileHeader: React.FC = () => {
             <nav className={styles.header}>
                 <Link className={styles.logoText} to="/characters" >
                     <div className={styles.logoContainer}>
-                        <h3 /* className={styles.logoText} */>
+                        <h3>
                             Rick & Morty
                         </h3>
                     </div>

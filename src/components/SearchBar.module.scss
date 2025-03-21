@@ -8,20 +8,20 @@
 
     // ---------ANT DESIGN OVERRIDES--------
 
-    :global(.ant-input) {
-        width: 100% !important;
-        background-color: $sectionBg !important;
-        color: $primaryColor !important;
-        border: 1px solid $greenBorder !important;
-        transition: border-color 0.3s ease-in-out;
-    }
-    :global(.ant-input::placeholder) {
-        color: $primaryColor !important;
-    }
-    :global(.ant-input:focus),
-    :global(.ant-input-focused) {
-        border-color: $greenFocus !important;
-    }
+:global(.ant-input) {
+    width: 100% !important;
+    background-color: $sectionBg !important;
+    color: $primaryColor !important;
+    border: 1px solid $greenBorder !important;
+    transition: border-color 0.3s ease-in-out;
+}
+:global(.ant-input::placeholder) {
+    color: $primaryColor !important;
+}
+:global(.ant-input:focus),
+:global(.ant-input-focused) {
+    border-color: $greenFocus !important;
+}
 }
 
 // ------------RESPONSIVE--------------

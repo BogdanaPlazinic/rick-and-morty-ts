@@ -57,7 +57,7 @@
       }
 }
 
-// ------------COMPONENTS--------------
+// ------------RENDER COMPONENTS--------------
 
 .stickyHeader {
     position: sticky;
@@ -74,14 +74,14 @@
     align-items: center;
 }
 
-// ------------RESPONSIVE--------------
+// ------------RESPONSIVE-------------------
 
 @media (min-width: 768px) {
     .charactersGridContainer {
         grid-template-columns: repeat(5, 1fr);
     }
 
-    // -------res-components------------
+    // -------RESPONSIVE RENDER COMPONENTS------------
     .searchContainer {
         display: flex;
         flex-direction: row;
