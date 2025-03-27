@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { LogoutOutlined } from "@ant-design/icons";
 
@@ -7,9 +7,12 @@ import styles from "./DesktopHeader.module.scss"
 
 
 const DesktopHeader: React.FC = () => {
+    const navigate = useNavigate()
+
     return (
         <header className={styles.headerDesktopContainer}>
             <nav className={styles.navDesktopContainer}>
+                
                 <Link to="/characters" className={styles.logoDesktopContainer}>
                     <img 
                     className={styles.logoImg}
@@ -24,9 +27,13 @@ const DesktopHeader: React.FC = () => {
                         <Link to="/favourites">Favourites</Link>
                     </div>
                     <div className={styles.logoutDesktopBtn}>
-                        <Link to="/">
-                            <LogoutOutlined />
-                        </Link>
+                            <LogoutOutlined 
+                            className={styles.logoutDesktopBtnElement}
+                            onClick={()=>{
+                            localStorage.removeItem("loggedUser")
+                            navigate('/')
+                            }}  
+                            />
                     </div>
                 </div>
             </nav>

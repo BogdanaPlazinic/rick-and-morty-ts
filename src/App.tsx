@@ -1,22 +1,22 @@
-import React from "react"
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import LogIn from "./pages/LogIn"
-import { AuthProvider } from "./context/AuthProvider"
-import CharactersPage from "./pages/CharactersPage"
-import Favouites from "./pages/Favourites"
+import LogIn from "./pages/LogIn";
+import { AuthProvider } from "./context/AuthProvider";
+import CharactersPage from "./pages/CharactersPage";
+import Favourites from "./pages/Favourites";
+import ProtectedRoute from "./components/ProtectedRoute";
 
-import { ToastContainer } from "react-toastify"
-import "react-toastify/dist/ReactToastify.css"
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-import styles from "./App.module.scss"
+import styles from "./App.module.scss";
 
 const App: React.FC = () => {
-
   return (
     <main className={`${styles.App}`}>
       <AuthProvider>
-      <ToastContainer 
+        <ToastContainer
           position="top-right"
           autoClose={2000}
           hideProgressBar={false}
@@ -31,13 +31,15 @@ const App: React.FC = () => {
         <Router>
           <Routes>
             <Route path="/" element={<LogIn />} />
-            <Route path="/characters" element={<CharactersPage />} />
-            <Route path="/favourites" element={<Favouites />} />
+            <Route element={<ProtectedRoute />}>
+              <Route path="/characters" element={<CharactersPage />} />
+              <Route path="/favourites" element={<Favourites />} />
+            </Route>
           </Routes>
         </Router>
       </AuthProvider>
     </main>
-  )
-}
+  );
+};
 
-export default App
+export default App;

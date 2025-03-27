@@ -2,18 +2,18 @@ import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import type { FormProps } from 'antd';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Checkbox, Form, Input, message } from 'antd';
 import { ArrowRightOutlined } from '@ant-design/icons'
 import { AuthContext } from '../context/AuthContext';
 
 import styles from "./Login.module.scss"
+import { mockedUsers } from '../helper';
 
 type FieldType = {
   username?: string;
   password?: string;
   remember?: boolean;
 };
-
 
 const Login: React.FC = () => {
   const context = useContext(AuthContext);
@@ -27,13 +27,17 @@ const Login: React.FC = () => {
   
 
   const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
-    if (values.username === 'user' && values.password === 'user123') {
+    const validUser = mockedUsers.find((user) => user.username === values.username && user.password === values.password)
+
+    if(validUser){
+      const userStringified = JSON.stringify(validUser);
+      localStorage.setItem("loggedUser", userStringified);
       setAuthenticated(true);
       navigate('/characters');
     } else {
-      alert('Invalid credentials');
+      message.error('Invalid credentials');
     }
-  };
+  }
 
   const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = (errorInfo) => {
     console.log('Failed:', errorInfo);

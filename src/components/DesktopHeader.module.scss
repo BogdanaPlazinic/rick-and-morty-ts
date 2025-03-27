@@ -51,10 +51,10 @@
     margin-left: 10px;
     cursor: pointer;
 }
-.logoutDesktopBtn a {
+.logoutDesktopBtnElement {
     color: $primaryColor;
 }
-.logoutDesktopBtn a:hover {
-    color: $btnRedColor;
+.logoutDesktopBtnElement:hover {
+    color: $btnRedColor !important;
     font-size: 32px;
 }

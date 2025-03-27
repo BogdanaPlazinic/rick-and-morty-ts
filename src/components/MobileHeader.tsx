@@ -10,11 +10,12 @@ const MobileHeader: React.FC = () => {
     const [isOpen, setOpen] = useState<boolean>(false)
     const navigate = useNavigate()
 
-    const handleLoogout = () => {
+    const handleLogOut = () => {
+        localStorage.removeItem("loggedUser")
         navigate('/')
+
     }
     
-
     return (
         <header className={styles.headerMainContainer}>
             <nav className={styles.header}>
@@ -43,7 +44,7 @@ const MobileHeader: React.FC = () => {
                                 <div className={styles.buttonContainer}>
                                     <Button
                                     className={styles.menuBtn}
-                                    onClick={handleLoogout}
+                                    onClick={handleLogOut}
                                     type='primary'
                                     >
                                     Log Out
