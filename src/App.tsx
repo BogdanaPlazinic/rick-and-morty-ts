@@ -14,31 +14,34 @@ import styles from "./App.module.scss";
 
 const App: React.FC = () => {
   return (
-    <main className={`${styles.App}`}>
+    <>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+
       <AuthProvider>
-        <ToastContainer
-          position="top-right"
-          autoClose={2000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick={false}
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-        />
         <Router>
-          <Routes>
-            <Route path="/" element={<LogIn />} />
-            <Route element={<ProtectedRoute />}>
-              <Route path="/characters" element={<CharactersPage />} />
-              <Route path="/favourites" element={<Favourites />} />
-            </Route>
-          </Routes>
+          <main className={styles.App}>
+            <Routes>
+              <Route path="/" element={<LogIn />} />
+              <Route element={<ProtectedRoute />}>
+                <Route path="/characters" element={<CharactersPage />} />
+                <Route path="/favourites" element={<Favourites />} />
+              </Route>
+            </Routes>
+          </main>
         </Router>
       </AuthProvider>
-    </main>
+    </>
   );
 };
 

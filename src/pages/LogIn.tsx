@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
-import type { FormProps } from 'antd';
-import { Button, Checkbox, Form, Input, message } from 'antd';
-import { ArrowRightOutlined } from '@ant-design/icons'
-import { AuthContext } from '../context/AuthContext';
+import type { FormProps } from "antd";
+import { Button, Checkbox, Form, Input, message } from "antd";
+import { ArrowRightOutlined } from "@ant-design/icons";
+import { AuthContext } from "../context/AuthContext";
 
-import styles from "./Login.module.scss"
-import { mockedUsers } from '../helper';
+import styles from "./Login.module.scss";
+import { mockedUsers } from "../constants";
 
 type FieldType = {
   username?: string;
@@ -20,85 +20,97 @@ const Login: React.FC = () => {
   const navigate = useNavigate();
 
   if (!context) {
-    throw new Error('AuthContext is undefined');
+    message.error("Authentication error. Please try again later");
+    return null;
   }
 
   const { setAuthenticated } = context;
-  
 
-  const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
-    const validUser = mockedUsers.find((user) => user.username === values.username && user.password === values.password)
+  const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
+    const validUser = mockedUsers.find(
+      (user) =>
+        user.username.trim() === values.username.trim() &&
+        user.password === values.password
+    );
 
-    if(validUser){
+    if (validUser) {
       const userStringified = JSON.stringify(validUser);
       localStorage.setItem("loggedUser", userStringified);
       setAuthenticated(true);
-      navigate('/characters');
+      navigate("/characters");
     } else {
-      message.error('Invalid credentials');
+      message.error("Invalid credentials");
     }
-  }
+  };
 
-  const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = (errorInfo) => {
-    console.log('Failed:', errorInfo);
+  const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (
+    errorInfo
+  ) => {
+    message.warning("Please fill in all required fields");
+    console.log("Failed:", errorInfo);
   };
 
   return (
     <section className={`${styles.background}`}>
-    <div className={styles.mainSection}>
-      <div className={styles.form}>
-        <h2>Login</h2>
-    
-    <Form 
-    className={styles.formContainer}
-      name="basic"
-      labelCol={{ span: 24 }}
-      wrapperCol={{ span: 24 }}
-      initialValues={{ remember: true }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      autoComplete="off"
-    >
-      <div className={styles.inputContainer}>
-      <Form.Item<FieldType>
-        name="username"
-        
-        rules={[{ required: true, message: 'Please input your username!' }]}
-      >
-        <Input 
-        placeholder='Username'
-        />
-      </Form.Item>
+      <div className={styles.mainSection}>
+        <div className={styles.form}>
+          <h2>Login</h2>
 
-      <Form.Item<FieldType>
-        name="password"
-        rules={[{ required: true, message: 'Please input your password!' }]}
-      >
-        <Input.Password 
-        placeholder='Password'
-        />
-      </Form.Item>
-      <div className={styles.rememberContainer}>
-      <Form.Item<FieldType> name="remember" valuePropName="checked" label={null}>
-        <Checkbox>Remember me</Checkbox>
-      </Form.Item>
-      </div>
-      </div>
+          <Form
+            className={styles.formContainer}
+            name="basic"
+            labelCol={{ span: 24 }}
+            wrapperCol={{ span: 24 }}
+            initialValues={{ remember: true }}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+            autoComplete="off"
+          >
+            <div className={styles.inputContainer}>
+              <Form.Item<FieldType>
+                name="username"
+                rules={[
+                  { required: true, message: "Please input your username!" },
+                ]}
+              >
+                <Input placeholder="Username" />
+              </Form.Item>
 
-      <div className={styles.continueBtnContainer}>
-      <Form.Item label={null}>
-        <Button 
-        className={styles.continueBtn}
-        block type="primary" 
-        htmlType="submit">
-          Continue
-          <ArrowRightOutlined />
-        </Button>
-      </Form.Item>
+              <Form.Item<FieldType>
+                name="password"
+                rules={[
+                  { required: true, message: "Please input your password!" },
+                ]}
+              >
+                <Input.Password placeholder="Password" />
+              </Form.Item>
+              <div className={styles.rememberContainer}>
+                <Form.Item<FieldType>
+                  name="remember"
+                  valuePropName="checked"
+                  label={null}
+                >
+                  <Checkbox>Remember me</Checkbox>
+                </Form.Item>
+              </div>
+            </div>
+
+            <div className={styles.continueBtnContainer}>
+              <Form.Item label={null}>
+                <Button
+                  className={styles.continueBtn}
+                  block
+                  type="primary"
+                  htmlType="submit"
+                >
+                  Continue
+                  <ArrowRightOutlined />
+                </Button>
+              </Form.Item>
+            </div>
+          </Form>
+        </div>
       </div>
-    </Form>
-    </div>
-    </div>
     </section>
   );
 };
