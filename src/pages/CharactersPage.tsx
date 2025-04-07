@@ -53,7 +53,6 @@ const CharactersPage: React.FC = () => {
         setTotalPages(response.data.info.pages);
         setLoading(false);
         setError(null);
-        console.log(response);
       } catch (error) {
         console.error("Failed to fetch characters:", error);
         setError("No characters found");
