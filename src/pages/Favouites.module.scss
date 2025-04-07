@@ -1,0 +1,49 @@
+@use "../styles/mixins";
+@use "../styles/variables" as *;
+
+* {
+    @include mixins.font;
+}
+.favouritesMainContainer {
+    @include mixins.backgroundStyle;
+}
+.favouritesHeading {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+.charactersGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+.characterCard {
+    @include mixins.cardStyle;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+.btnContainer {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+}
+.editBtn {
+    @include mixins.buttonStyle
+}
+.removeBtn {
+    @include mixins.buttonRedStyle
+}
+
+// ------------RESPONSIVE--------------
+
+@media (min-width: 768px) {
+    .charactersGrid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}

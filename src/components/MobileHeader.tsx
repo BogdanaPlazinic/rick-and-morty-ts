@@ -4,25 +4,28 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button } from 'antd';
 import Hamburger from 'hamburger-react';
 
-import styles from './Navbar.module.scss'
+import styles from './MobileHeader.module.scss'
 
-const Navbar: React.FC = () => {
+const MobileHeader: React.FC = () => {
     const [isOpen, setOpen] = useState<boolean>(false)
     const navigate = useNavigate()
 
-    const handleLoogout = () => {
+    const handleLogOut = () => {
+        localStorage.removeItem("loggedUser")
         navigate('/')
+
     }
     
-
     return (
         <header className={styles.headerMainContainer}>
             <nav className={styles.header}>
-                <div className={styles.logoContainer}>
-                    <h3 className={styles.logoText}>
-                        Rick & Morty
-                    </h3>
-                </div>
+                <Link className={styles.logoText} to="/characters" >
+                    <div className={styles.logoContainer}>
+                        <h3>
+                            Rick & Morty
+                        </h3>
+                    </div>
+                </Link>
 
                 <div className={styles.menuContainer}>
                     <Hamburger 
@@ -35,13 +38,13 @@ const Navbar: React.FC = () => {
                     <div className={styles.menuOpen}>
                         <div className={styles.menuMainContainer}>
                             <div className={styles.menuContent}>
-                                <Link className={styles.linkElement} to="#">Favourite</Link>
                                 <Link className={styles.linkElement} to="/characters">Characters</Link>
+                                <Link className={styles.linkElement} to="/favourites">Favourites</Link>
 
-                                <div>
+                                <div className={styles.buttonContainer}>
                                     <Button
                                     className={styles.menuBtn}
-                                    onClick={handleLoogout}
+                                    onClick={handleLogOut}
                                     type='primary'
                                     >
                                     Log Out
@@ -56,4 +59,4 @@ const Navbar: React.FC = () => {
     )
 }
 
-export default Navbar;
+export default MobileHeader;

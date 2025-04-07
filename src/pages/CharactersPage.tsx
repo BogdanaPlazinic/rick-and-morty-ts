@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import Navbar from "../components/Navbar";
+import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
 import CharacterModal from "../components/CharacterModal";
 import Filters from "../components/Filters";
@@ -24,7 +24,9 @@ const CharactersPage: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
+  const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(
+    null
+  );
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [status, setStatus] = useState<string>("");
   const [species, setSpecies] = useState<string>("");
@@ -32,19 +34,19 @@ const CharactersPage: React.FC = () => {
   const [currentPage, setCurrenPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(1);
 
-
   useEffect(() => {
     const fetchCharacters = async () => {
       try {
-        const response = await axios.get( 
-          "https://rickandmortyapi.com/api/character/", {
+        const response = await axios.get(
+          "https://rickandmortyapi.com/api/character/",
+          {
             params: {
               name: searchTerm,
               status: status,
               species: species,
               gender: gender,
-              page: currentPage
-            }
+              page: currentPage,
+            },
           }
         );
         setCharacters(response.data.results);
@@ -62,8 +64,8 @@ const CharactersPage: React.FC = () => {
   }, [searchTerm, status, species, gender, currentPage]);
 
   const handlePageChange = (page: number) => {
-    setCurrenPage(page)
-  }
+    setCurrenPage(page);
+  };
 
   const openModal = (character: Character) => {
     setSelectedCharacter(character);
@@ -82,15 +84,18 @@ const CharactersPage: React.FC = () => {
   return (
     <>
       <div className={styles.charactersBackground}>
-        <Navbar />
+        <Header />
         <div className={styles.container}>
           <h1>Character List</h1>
-          <SearchBar setSearchTerm={setSearchTerm} />
-          <Filters
-            setStatus={setStatus}
-            setSpecies={setSpecies}
-            setGender={setGender}
-          />
+
+          <div className={styles.searchContainer}>
+            <Filters
+              setStatus={setStatus}
+              setSpecies={setSpecies}
+              setGender={setGender}
+            />
+            <SearchBar setSearchTerm={setSearchTerm} />
+          </div>
           {error ? (
             <p>{error}</p>
           ) : (
@@ -103,13 +108,22 @@ const CharactersPage: React.FC = () => {
                 >
                   <img src={character.image} alt={character.name} />
                   <h3>{character.name}</h3>
-                  <p>{character.status}</p>
+                  <p
+                    className={`${styles.characterStatus} ${
+                      character.status === "Alive"
+                        ? styles.alive
+                        : character.status === "Dead"
+                        ? styles.dead
+                        : styles.unknown
+                    }`}
+                  >
+                    {character.status}
+                  </p>
                   <p>{character.species}</p>
                 </div>
               ))}
             </div>
           )}
-
           <CharacterModal
             character={selectedCharacter}
             isOpen={isModalOpen}
@@ -117,10 +131,10 @@ const CharactersPage: React.FC = () => {
           />
         </div>
 
-        <PaginationComponent 
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
+        <PaginationComponent
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
         />
       </div>
     </>

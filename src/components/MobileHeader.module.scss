@@ -1,0 +1,80 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins";
+
+
+.headerMainContainer {
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+}
+.header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: $primaryColor;
+    z-index: 999;
+    color: $secondaryColor !important;
+}
+.logoContainer {
+    display: flex;
+    justify-content: flex-start;
+    width: 50%;
+    padding-left: 10px;
+}
+.logoText {
+    font-size: 15px;
+    cursor: pointer;
+    color: $secondaryColor;
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    text-align: center; 
+}
+.menuContainer {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+    z-index: 999;
+    padding-right: 10px;
+}
+.menuContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 700px;
+}
+.menuMainContainer {
+    position: relative;
+}
+.menuOpen {
+    background-color: $primaryColor;
+    position: fixed;
+    width: 100vw;
+    height: 100%;
+    z-index: 2;
+    top: 0px;
+}
+.linkElement {
+    color: $secondaryColor !important;
+    text-decoration: none !important;
+    font-size: 30px;
+    font-weight: bolder;
+}
+.buttonContainer {
+    padding-top: 15px
+}
+.menuBtn {
+    @include mixins.buttonStyle;
+    border: none !important;
+    font-weight: bold;
+}
+
+// ------------RESPONSIVE--------------
+
+@media (min-width: 768px) {
+    .logoContainer {
+        padding-left: 0;
+        margin: 0 auto;
+    }
+}  
