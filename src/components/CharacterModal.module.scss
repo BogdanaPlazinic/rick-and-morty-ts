@@ -1,85 +1,85 @@
 @use "../styles/variables" as *;
 
 * {
-    font-family: "Poppins",sans-serif !important;
+  font-family: "Poppins", sans-serif !important;
 }
 .characterModalContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .characterModalContainer p {
-    display: flex;
-    align-items: start;
-    font-size: large;
-    margin: 0;
-    padding-bottom: 10px;
+  display: flex;
+  align-items: start;
+  font-size: large;
+  margin: 0;
+  padding-bottom: 10px;
 }
 .characterModalContainer p span {
-    font-weight: bolder;
+  font-weight: bolder;
+  padding-right: 10px;
 }
 .characterModalContainer img {
-    border-radius: 30px;
-    width: 200px;
-    height: 200px;
-    padding-bottom: 15px;
+  border-radius: 30px;
+  width: 200px;
+  height: 200px;
+  padding-bottom: 15px;
 }
 .favouriteIcon {
-    cursor: pointer;
-    font-size: 28px;
-    color: $btnColor;
+  cursor: pointer;
+  font-size: 28px;
+  color: $btnColor;
 }
 .modalHeader {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
 }
 .modalIcon {
-    width: 20%;
-    justify-content: start;
+  width: 20%;
+  justify-content: start;
 }
 .modalTitle {
-    width: 80%;
-    justify-content: center;
-    font-size: 28px;
+  width: 80%;
+  justify-content: center;
+  font-size: 28px;
 }
 
 // ---------ANT DESIGN OVERRIDES--------
 
 :global(.ant-modal) {
-    width: 340px !important;
+  width: 340px !important;
 }
 :global(.ant-modal-content) {
-    background-color: $sectionBg !important;
-    backdrop-filter: blur(10px);
-    border-radius: 20px !important;
-    color: $primaryColor !important;
+  background-color: $sectionBg !important;
+  backdrop-filter: blur(10px);
+  border-radius: 20px !important;
+  color: $primaryColor !important;
 }
 :global(.ant-modal-header) {
-    background-color: transparent !important;
+  background-color: transparent !important;
 }
 :global(.ant-modal-title) {
-    font-size: 35px !important;
-    color: $primaryColor !important;
+  font-size: 35px !important;
+  color: $primaryColor !important;
 }
 :global(.ant-modal-close) {
-    color: $primaryColor !important;
+  color: $primaryColor !important;
 }
 :global(.ant-modal-footer) button {
-    background-color: $btnColor !important;
-    color: $primaryColor !important;
-    border: 1px solid $greenBorder !important;
+  background-color: $btnColor !important;
+  color: $primaryColor !important;
+  border: 1px solid $greenBorder !important;
 }
 
 // ------------RESPONSIVE--------------
 
 @media (min-width: 768px) {
-    :global(.ant-modal) {
-        width: 450px !important;
-    }
-    .modalTitle {
-        font-size: 35px;
-    }
+  :global(.ant-modal) {
+    width: 450px !important;
+  }
+  .modalTitle {
+    font-size: 35px;
+  }
 }

@@ -2,94 +2,88 @@
 @use "../styles/variables" as *;
 
 * {
-    @include mixins.font;
+  @include mixins.font;
 }
 .charactersBackground {
-    @include mixins.backgroundStyle;
+  @include mixins.backgroundStyle;
 }
 .container {
-    padding: 20px;
-    text-align: center;
+  padding: 20px;
+  text-align: center;
 }
 .container h1 {
-    color: $primaryColor;
+  color: $primaryColor;
 }
-
 .charactersGridContainer {
-    @include mixins.gridStyle;
+  @include mixins.gridStyle;
 }
-
 .characterCard {
-    background-color: $sectionBg;
-    backdrop-filter: blur(5px);
-    color: $primaryColor;
-    padding: 20px;
+  background-color: $sectionBg;
+  backdrop-filter: blur(5px);
+  color: $primaryColor;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+  img {
+    width: 100%;
+    max-width: 200px;
     border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
-    cursor: pointer;
-
-    &:hover {
-        transform: scale(1.05);
-    }
-
-    img {
-        width: 100%;
-        max-width: 200px;
-        border-radius: 10px;
-    }
+  }
 }
 .characterStatus {
-    color: $btnColor;
-    font-weight: bold;
+  color: $btnColor;
+  font-weight: bold;
 
-    &.alive {
-        color: $btnColor;
-      }
-    
-      &.dead {
-        color: $btnRedColor;
-      }
-    
-      &.unknown {
-        color: $secondaryColor;
-      }
+  &.alive {
+    color: $btnColor;
+  }
+
+  &.dead {
+    color: $btnRedColor;
+  }
+
+  &.unknown {
+    color: $secondaryColor;
+  }
 }
 
 // ------------RENDER COMPONENTS--------------
 
-.stickyHeader {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-}
 .searchContainer {
-    width: 100%;
-    display: flex;
-    flex-direction: column-reverse;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: space-around;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
 }
 
 // ------------RESPONSIVE-------------------
 
 @media (min-width: 768px) {
-    .charactersGridContainer {
-        grid-template-columns: repeat(5, 1fr);
-    }
+  .charactersGridContainer {
+    grid-template-columns: repeat(5, 1fr);
+  }
 
-    // -------RESPONSIVE RENDER COMPONENTS------------
-    .searchContainer {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-content: stretch;
-        justify-content: space-evenly;
-        align-items: center;
-        margin-top: 80px;
-        margin-bottom: 60px;
-    } 
+  // -------RESPONSIVE RENDER COMPONENTS------------
+  .searchContainer {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    margin-top: 80px;
+    margin-bottom: 60px;
+  }
 }

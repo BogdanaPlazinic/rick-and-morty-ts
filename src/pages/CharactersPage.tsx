@@ -53,6 +53,7 @@ const CharactersPage: React.FC = () => {
         setTotalPages(response.data.info.pages);
         setLoading(false);
         setError(null);
+        console.log(response);
       } catch (error) {
         console.error("Failed to fetch characters:", error);
         setError("No characters found");
@@ -84,9 +85,7 @@ const CharactersPage: React.FC = () => {
   return (
     <>
       <div className={styles.charactersBackground}>
-        <div className={styles.stickyHeader}>
-          <Header />
-        </div>
+        <Header />
         <div className={styles.container}>
           <h1>Character List</h1>
 

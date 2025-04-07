@@ -8,15 +8,7 @@ import EditCharacterModal from "../components/EditCharacterModal";
 
 import styles from "./Favouites.module.scss";
 import { safelyParseJSON } from "../helpers";
-
-interface Character {
-  id: number;
-  name: string;
-  status: string;
-  species: string;
-  gender: string;
-  image: string;
-}
+import { Character } from "src/types/Character";
 
 const Favourites: React.FC = () => {
   const [favourites, setFavourites] = useState<Character[]>([]);

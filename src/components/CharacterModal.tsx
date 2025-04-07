@@ -3,16 +3,9 @@ import { Button, Modal } from "antd";
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 import { toast } from "react-toastify";
 
+import { Character } from "src/types/Character";
 import styles from "./CharacterModal.module.scss";
-
-interface Character {
-  id: number;
-  name: string;
-  status: string;
-  species: string;
-  gender: string;
-  image: string;
-}
+import { safelyParseJSON } from "../helpers";
 
 interface CharacterModalProps {
   character: Character | null;
@@ -28,18 +21,18 @@ const CharacterModal: React.FC<CharacterModalProps> = ({
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
-    if (character) {
-      const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
-      setIsFavorite(
-        favorites.some((fav: Character) => fav.id === character.id)
-      );
-    }
+    if (!character) return;
+
+    const favorites = safelyParseJSON(
+      localStorage.getItem("favorites") || "[]"
+    );
+    setIsFavorite(favorites.some((fav: Character) => fav.id === character.id));
   }, [character]);
 
   const handleFavoriteClick = () => {
     if (!character) return;
 
-    let favorites: Character[] = JSON.parse(
+    let favorites: Character[] = safelyParseJSON(
       localStorage.getItem("favorites") || "[]"
     );
 
@@ -53,8 +46,6 @@ const CharacterModal: React.FC<CharacterModalProps> = ({
 
     localStorage.setItem("favorites", JSON.stringify(favorites));
     setIsFavorite(!isFavorite);
-
-    window.dispatchEvent(new Event("favoritesUpdated"));
   };
 
   return (
@@ -75,26 +66,26 @@ const CharacterModal: React.FC<CharacterModalProps> = ({
       }
       open={isOpen}
       onCancel={onClose}
-      footer={[
+      footer={
         <Button onClick={onClose} key="cancel">
           Cancel
-        </Button>,
-      ]}
+        </Button>
+      }
     >
       {character && (
         <div className={styles.characterModalContainer}>
           <img src={character.image} alt={character.name} />
           <p>
-            <span>Status: &nbsp;</span>
-            {character.status}{" "}
+            <span>Status:</span>
+            {character.status}
           </p>
           <p>
-            <span>Species: &nbsp;</span>
-            {character.species}{" "}
+            <span>Species:</span>
+            {character.species}
           </p>
           <p>
-            <span>Gender: &nbsp;</span>
-            {character.gender}{" "}
+            <span>Gender:</span>
+            {character.gender}
           </p>
         </div>
       )}
